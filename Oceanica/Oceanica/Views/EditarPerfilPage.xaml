@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.EditarPerfilPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Editar Perfil">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding EditarPerfil}">
+                <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
+                    <Entry Placeholder="Nombre Completo"></Entry>
+                    <Entry Placeholder="Teléfono"></Entry>
+                    <Entry Placeholder="Placa de Vehículo"></Entry>
+                    <Entry Placeholder="Número de Poliza"></Entry>
+                    <Entry Placeholder="Teléfono 2"></Entry>
+                    <Entry Placeholder="Chasis"></Entry>
+                    <Entry Placeholder="Titular de la Póliza"></Entry>
+                    <Button HorizontalOptions="Center" WidthRequest="150" TextColor="White" Text="Guardar" BorderRadius="10" BackgroundColor="#00D4C1"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.SuministroCombustiblePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Suministro de Combustible">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding SuministroCombustible}">
+                <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
+                    <StackLayout  Orientation="Horizontal" >
+                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Label FontSize="18" Text="Gasolina 91" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </Frame>
+                <BoxView 
+                    HeightRequest="1" 
+                    BackgroundColor="#f2f2f2" 
+                    HorizontalOptions="FillAndExpand" />
+                <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
+                    <StackLayout  Orientation="Horizontal" >
+                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Label FontSize="18" Text="Gasolina 95" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SuministroCombustibleCommand}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+                <BoxView 
+                    HeightRequest="1" 
+                    BackgroundColor="#f2f2f2" 
+                    HorizontalOptions="FillAndExpand" />
+                <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
+                    <StackLayout  Orientation="Horizontal"  >
+                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Label FontSize="18" Text="Diesel" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </Frame>
+                <BoxView 
+                    HeightRequest="1" 
+                    BackgroundColor="#f2f2f2" 
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

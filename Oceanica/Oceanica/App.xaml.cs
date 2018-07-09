@@ -7,13 +7,18 @@ using Xamarin.Forms;
 
 namespace Oceanica
 {
-	public partial class App : Application
+    using Xamarin.Forms;
+    using Oceanica.Views;
+    public partial class App : Application
 	{
 		public App ()
 		{
 			InitializeComponent();
+            NavigationPage np = new NavigationPage(new MainMenuPage());
+            np.BarBackgroundColor = Color.FromRgb(37, 60, 91);
+            MainPage = np;
 
-			MainPage = new Oceanica.MainPage();
+            //MainPage = new Oceanica.MainPage();
 		}
 
 		protected override void OnStart ()

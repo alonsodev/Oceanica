@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EC81E38B-BB43-4200-B4E1-6BC7E06B591C}</ProjectGuid>
+    <ProjectGuid>{2C076D5B-7A68-4995-93A2-366A04EA290A}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Oceanica.iOS</RootNamespace>
@@ -124,7 +124,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Oceanica\Oceanica.csproj">
-      <Project>{584FD0EE-6B4A-4909-AF08-1B260EC0A0D9}</Project>
+      <Project>{BC6B038D-66DB-4A90-A44F-996BF60CEAB2}</Project>
       <Name>Oceanica</Name>
     </ProjectReference>
   </ItemGroup>

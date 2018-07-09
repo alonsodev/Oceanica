@@ -1,10 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Oceanica.Infrastructure"
              x:Class="Oceanica.App">
-	<Application.Resources>
-
-		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <infra:InstanceLocator x:Key="Locator" />
+            <Style TargetType="StackLayout" Class="MainSL">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style TargetType="StackLayout" Class="MainSL2">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Padding" Value="10,20,10,20" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#373737" />
+                <Setter Property="PlaceholderColor" Value="#8c8c8c" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#373737"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
