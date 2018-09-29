@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.DescripcionPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Descripción...">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Descripcion}">
+                <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
+                    <Label FontSize="Medium" Text="Ingrese una breve descripción de lo sucedido."></Label>
+                    <Editor Text="{Binding Descripcion, Mode=TwoWay}" HeightRequest="250" ></Editor>
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="25,25">
+                        <Image HeightRequest="80" Source="siguiente.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SiguienteCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

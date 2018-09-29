@@ -9,9 +9,13 @@ namespace Oceanica
 {
     using Xamarin.Forms;
     using Oceanica.Views;
+    using Oceanica.Models;
+    using Oceanica.Services;
+    using Oceanica.ViewModels;
+
     public partial class App : Application
 	{
-		public App ()
+        public App ()
 		{
 			InitializeComponent();
             NavigationPage np = new NavigationPage(new MainMenuPage());
@@ -19,14 +23,14 @@ namespace Oceanica
             MainPage = np;
 
             //MainPage = new Oceanica.MainPage();
-		}
+        }
 
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
 
-		protected override void OnSleep ()
+        protected override void OnSleep ()
 		{
 			// Handle when your app sleeps
 		}

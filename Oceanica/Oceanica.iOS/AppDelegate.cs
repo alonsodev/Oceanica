@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using TK.CustomMap.iOSUnified;
 
 namespace Oceanica.iOS
 {
@@ -23,6 +24,8 @@ namespace Oceanica.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.FormsMaps.Init();
+            TKCustomMapRenderer.InitMapRenderer();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

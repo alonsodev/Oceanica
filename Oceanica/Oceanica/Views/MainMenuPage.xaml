@@ -10,11 +10,33 @@
                 <StackLayout Margin="40,25,40,40">
                     <Image Source="logo_full.png" HorizontalOptions="Center" ></Image>
                 </StackLayout>
+
+                <Image Source="btn_asistencia.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SolicitarAsistenciaCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="btn_perfil.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EditarPerfilCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="btn_llamada.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LlamadaEmergenciaCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="btn_puntos.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PuntosInteresCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+<!--
                 <Frame CornerRadius="10"  Margin="50,0,50,25"
                     Padding="0" >
                     <StackLayout>
                         <StackLayout BackgroundColor="#00a9c6" Orientation="Horizontal"  Padding="10,10,10,10" >
-                            <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                            <Image WidthRequest="24" Margin="10,0,10,0" Source="call_center.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
                                 <Label FontSize="18" Text="SOLICITAR" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
                                 <Label FontSize="18" Text="ASISTENCIA" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
@@ -32,7 +54,7 @@
                     Padding="0" >
                     <StackLayout>
                         <StackLayout  BackgroundColor="#00a9c6" Orientation="Horizontal"  Padding="10,10,10,10" >
-                            <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                            <Image WidthRequest="24" Margin="10,0,10,0" Source="user.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
                             <StackLayout HorizontalOptions="FillAndExpand">
                                 <Label FontSize="18" Text="EDITAR PERFIL" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
                             </StackLayout>
@@ -49,7 +71,7 @@
                     Padding="0" >
                     <StackLayout>
                         <StackLayout  BackgroundColor="#00a9c6" Orientation="Horizontal"  Padding="10,10,10,10" >
-                            <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                            <Image WidthRequest="24" Margin="10,0,10,0" Source="telephone.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
                             <StackLayout HorizontalOptions="FillAndExpand">
                                 <Label FontSize="18" Text="LLAMADA DE" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
                                 <Label FontSize="18" Text="EMERGENCIA" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
@@ -57,22 +79,27 @@
                             <Image  WidthRequest="24" Source="arrow_next.png" VerticalOptions="Center" HorizontalOptions="Center" />
                         </StackLayout>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LlamadaEmergenciaCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <Frame CornerRadius="10"  Margin="50,0,50,25"
                     Padding="0" >
                     <StackLayout>
                         <StackLayout  BackgroundColor="#00a9c6" Orientation="Horizontal"  Padding="10,10,10,10" >
-                            <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                            <Image WidthRequest="24" Margin="10,0,10,0" Source="map.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
                             <StackLayout HorizontalOptions="FillAndExpand">
                                 <Label FontSize="18" Text="PUNTOS DE" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
                                 <Label FontSize="18" Text="INTERÉS" TextColor="White" VerticalOptions="Center" HorizontalOptions="Start" />
                             </StackLayout>
                             <Image  WidthRequest="24" Source="arrow_next.png" VerticalOptions="Center" HorizontalOptions="Center" />
-
                         </StackLayout>
                     </StackLayout>
-                </Frame>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PuntosInteresCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>!-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.CambioLlantaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Cambio de Llanta">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding CambioLlanta}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Margin="10,40,0,40" VerticalOptions="Fill" HorizontalOptions="Fill">
+                        <Image Source="icon_grua.png"></Image>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" VerticalOptions="Fill">
+                        <Label HorizontalOptions="CenterAndExpand" FontSize="Medium" HorizontalTextAlignment="Center" Text="¿Dispone de todos los elementos necesarios para realizar el cambio de llanta?"></Label>
+                        <Image HeightRequest="80" Source="si.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SiCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image HeightRequest="80" Source="no.png">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NoCommand}"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

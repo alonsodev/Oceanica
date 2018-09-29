@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.MapsPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:tk="clr-namespace:TK.CustomMap;assembly=TK.CustomMap" 
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Mi Ubicación">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding Maps}">
+            <Editor Text="{Binding Direccion, Mode=TwoWay}" HeightRequest="80" Margin="25,0"></Editor>
+            <Button Text="Refrescar Posición" HorizontalOptions="FillAndExpand" x:Name="btnRefrescarPosicion" Clicked="BtnRefrescarPosicion_Clicked"  HeightRequest="50" BorderRadius="10" BackgroundColor="#00D4C1" TextColor="White"></Button>
+            <tk:TKCustomMap  
+                x:Name="MyMap"
+ 
+                IsShowingUser="true"
+                MapType="Street"
+                HorizontalOptions="FillAndExpand"
+VerticalOptions="FillAndExpand"
+                PinDragEnd="MyMap_PinDragEnd"
+                />
+
+            <StackLayout VerticalOptions="End" Margin="25,25">
+                <Image HeightRequest="80" Source="confirmar.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ConfirmarCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

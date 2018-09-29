@@ -46,10 +46,49 @@ namespace Oceanica.ViewModels
             }
         }
 
+        public ICommand CambioLlantaCommand
+        {
+            get
+            {
+                return new RelayCommand(CambioLlanta);
+            }
+        }
+
+        public ICommand PasoCorrienteCommand
+        {
+            get
+            {
+                return new RelayCommand(PasoCorriente);
+            }
+        }
+
+        private async void PasoCorriente()
+        {
+            this.IsRunning = true;
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilio = MainViewModel.eTipoAsistenciaAutoAuxilio.PasoCorriente;
+            vMainViewModel.Descripcion = new DescripcionViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new DescripcionPage());
+            this.IsRunning = false;
+        }
+
+
+        private async void CambioLlanta()
+        {
+            this.IsRunning = true;
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilio = MainViewModel.eTipoAsistenciaAutoAuxilio.CambioLlanta;
+            vMainViewModel.CambioLlanta = new CambioLlantaViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new CambioLlantaPage());
+            this.IsRunning = false;
+        }
+
         private async void SuministroCombustible()
         {
             this.IsRunning = true;
-            MainViewModel.GetInstance().SuministroCombustible = new SuministroCombustibleViewModel();
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilio = MainViewModel.eTipoAsistenciaAutoAuxilio.SuministroCombustible;
+            vMainViewModel.SuministroCombustible = new SuministroCombustibleViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new SuministroCombustiblePage());
             this.IsRunning = false;
         }

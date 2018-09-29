@@ -9,9 +9,12 @@
             <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding SuministroCombustible}">
                 <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
                     <StackLayout  Orientation="Horizontal" >
-                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
-                        <Label FontSize="18" Text="Gasolina 91" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+                        <Image WidthRequest="36" Margin="10,0,10,0" Source="gasolina_diesel.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Label FontSize="18" Text="Regular" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegularCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 <BoxView 
                     HeightRequest="1" 
@@ -19,12 +22,12 @@
                     HorizontalOptions="FillAndExpand" />
                 <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
                     <StackLayout  Orientation="Horizontal" >
-                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
-                        <Label FontSize="18" Text="Gasolina 95" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SuministroCombustibleCommand}"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
+                        <Image WidthRequest="36" Margin="10,0,10,0" Source="gasolina_diesel.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Label FontSize="18" Text="Súper" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SuperCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 <BoxView 
                     HeightRequest="1" 
@@ -32,9 +35,12 @@
                     HorizontalOptions="FillAndExpand" />
                 <Frame Margin="0" Padding="10,25,10,25" HasShadow="False" OutlineColor="Transparent">
                     <StackLayout  Orientation="Horizontal"  >
-                        <Image Margin="10,0,10,0" Source="person_menu_item.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                        <Image WidthRequest="36" Margin="10,0,10,0" Source="gasolina_diesel.png" HorizontalOptions="Start" VerticalOptions="Center"></Image>
                         <Label FontSize="18" Text="Diesel" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DieselCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 <BoxView 
                     HeightRequest="1" 

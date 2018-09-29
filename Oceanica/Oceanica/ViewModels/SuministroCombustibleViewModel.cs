@@ -38,18 +38,56 @@ namespace Oceanica.ViewModels
         #endregion
 
         #region Commands
-        public ICommand SuministroCombustibleCommand
+        public ICommand RegularCommand
         {
             get
             {
-                return new RelayCommand(SuministroCombustible);
+                return new RelayCommand(Regular);
             }
         }
 
-        private async void SuministroCombustible()
+        public ICommand SuperCommand
+        {
+            get
+            {
+                return new RelayCommand(Super);
+            }
+        }
+
+        public ICommand DieselCommand
+        {
+            get
+            {
+                return new RelayCommand(Diesel);
+            }
+        }
+
+        private async void Super()
         {
             this.IsRunning = true;
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilioCombustible = MainViewModel.eTipoAsistenciaAutoAuxilioCombustible.Super;
+            vMainViewModel.Descripcion = new DescripcionViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new DescripcionPage());
+            this.IsRunning = false;
+        }
 
+        private async void Diesel()
+        {
+            this.IsRunning = true;
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilioCombustible = MainViewModel.eTipoAsistenciaAutoAuxilioCombustible.Diesel;
+            vMainViewModel.Descripcion = new DescripcionViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new DescripcionPage());
+            this.IsRunning = false;
+        }
+        private async void Regular()
+        {
+            this.IsRunning = true;
+            var vMainViewModel = MainViewModel.GetInstance();
+            vMainViewModel.TipoAsistenciaAutoAuxilioCombustible = MainViewModel.eTipoAsistenciaAutoAuxilioCombustible.Regular;
+            vMainViewModel.Descripcion = new DescripcionViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new DescripcionPage());
             this.IsRunning = false;
         }
 

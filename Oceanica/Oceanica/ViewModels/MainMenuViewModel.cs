@@ -8,8 +8,15 @@ namespace Oceanica.ViewModels
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
+    using Oceanica.Services;
+    using Oceanica.Models;
+
     public class MainMenuViewModel : BaseViewModel
     {
+        #region Services
+        private DataService dataService;
+        #endregion
+
         #region Attributes
         private bool isRunning;
         private bool isVisible;
@@ -33,7 +40,17 @@ namespace Oceanica.ViewModels
         #region Constructors
         public MainMenuViewModel()
         {
-            
+            //this.dataService = new DataService();
+            ValidateDataPerfil();
+        }
+
+        private async void ValidateDataPerfil()
+        {
+            //PerfilLocal oPerfilLocal = this.dataService.First<PerfilLocal>(false);
+            /*if (oPerfilLocal == null)
+            {
+                EditarPerfil();
+            }*/
         }
         #endregion
 
@@ -61,7 +78,37 @@ namespace Oceanica.ViewModels
                 return new RelayCommand(EditarPerfil);
             }
         }
-        
+
+        public ICommand LlamadaEmergenciaCommand
+        {
+            get
+            {
+                return new RelayCommand(LlamadaEmergencia);
+            }
+        }
+
+        public ICommand PuntosInteresCommand
+        {
+            get
+            {
+                return new RelayCommand(PuntosInteres);
+            }
+        }
+        private async void PuntosInteres()
+        {
+            this.IsRunning = true;
+            MainViewModel.GetInstance().PuntosInteres = new PuntosInteresViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new PuntosInteresPage());
+            this.IsRunning = false;
+        }
+
+        private async void LlamadaEmergencia()
+        {
+            this.IsRunning = true;
+            MainViewModel.GetInstance().LlamadaEmergencia = new LlamadaEmergenciaViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LlamadaEmergenciaPage());
+            this.IsRunning = false;
+        }
 
         private async void SolicitarAsistencia()
         {
@@ -82,8 +129,8 @@ namespace Oceanica.ViewModels
         private async void EditarPerfil()
         {
             this.IsRunning = true;
-            MainViewModel.GetInstance().EditarPerfil = new EditarPerfilViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new EditarPerfilPage());
+            MainViewModel.GetInstance().MenuEditarPerfil = new MenuEditarPerfilViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new MenuEditarPerfilPage());
             this.IsRunning = false;
         }
 

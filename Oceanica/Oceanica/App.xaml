@@ -17,9 +17,11 @@
                 <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="TextColor" Value="#373737" />
                 <Setter Property="PlaceholderColor" Value="#8c8c8c" />
+                <Setter Property="FontFamily" Value="Arial" />
             </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="#373737"></Setter>
+                <Setter Property="FontFamily" Value="Arial" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

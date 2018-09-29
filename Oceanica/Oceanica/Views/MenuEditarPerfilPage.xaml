@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.MenuEditarPerfilPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Elegir Póliza">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding MenuEditarPerfil}">
+                <StackLayout Margin="40,25,40,40">
+                    <Image Source="logo_full.png" HorizontalOptions="Center" ></Image>
+                </StackLayout>
+
+                <Image Source="menu_polizaauto.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EditarPerfilCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="menu_polizahogar.png" HorizontalOptions="Center" Margin="45,0,45,25" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EditarPerfilHogarCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+
+             
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

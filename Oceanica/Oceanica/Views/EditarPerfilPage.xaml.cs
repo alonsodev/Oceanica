@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oceanica.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace Oceanica.Views
 		public EditarPerfilPage ()
 		{
 			InitializeComponent ();
+            var vm = (MainViewModel)BindingContext;
+            /*if (vm.EditarPerfil.FirstValidation)
+            {
+                //NavigationPage.SetHasNavigationBar(this, false);
+                NavigationPage.SetHasBackButton(this, false);
+            }*/
 		}
 	}
 }

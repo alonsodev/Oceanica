@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oceanica.Views.EditarPerfilHogarPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Editar Perfil">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" StyleClass="MainSL" BindingContext="{Binding EditarPerfilHogar}">
+                <StackLayout VerticalOptions="StartAndExpand" StyleClass="MainSL2">
+                    <Entry Placeholder="Titular de la póliza" Text="{Binding Titular, Mode=TwoWay}"></Entry>
+                    <Entry Placeholder="Teléfono de contacto" Text="{Binding Telefono, Mode=TwoWay}"></Entry>
+                    <Entry Placeholder="Número de póliza" Text="{Binding NumPoliza, Mode=TwoWay}"></Entry>
+                    <Entry Placeholder="No. casa" Text="{Binding NoCasa, Mode=TwoWay}"></Entry>
+                    <Entry Placeholder="Apartamento o comercial" Text="{Binding Apartamento, Mode=TwoWay}"></Entry>
+                    <Button HorizontalOptions="Center" WidthRequest="150" TextColor="White" Command="{Binding GuardarCommand}" Text="Guardar" BorderRadius="10" BackgroundColor="#00D4C1"></Button>
+                </StackLayout>
+                <ActivityIndicator      
+                        IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                </ActivityIndicator>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
