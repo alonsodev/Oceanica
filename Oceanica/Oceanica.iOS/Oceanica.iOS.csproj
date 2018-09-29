@@ -141,4 +141,130 @@
       <Name>Oceanica</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\asistencia_auto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\asistencia_hogar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\averia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btn_asistencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btn_llamada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btn_perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\btn_puntos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\call_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car_accident.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cerrajeria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\confirmar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\electricidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emergency_ambulance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\enviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gasolina_diesel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_accidente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_auxilio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_enviar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_grua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_llamar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\llamar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_item_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_polizaauto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_polizahogar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\no.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\otros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\paso_corriente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\person_menu_item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plomeria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\si.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\siguiente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sum_combustible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vidrieria.png" />
+  </ItemGroup>
 </Project>
