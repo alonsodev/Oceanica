@@ -52,7 +52,7 @@ namespace Oceanica.Views
             {
                 return;
             }
-            
+
             try
             {
                 CancellationTokenSource ctx = new CancellationTokenSource();
@@ -63,9 +63,9 @@ namespace Oceanica.Views
 
                 if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
                 {
-                    
+
                     ctx.CancelAfter(30000);
-                    var location = await locator.GetPositionAsync(TimeSpan.FromTicks(10000));//TimeSpan.FromTicks(10000)
+                    var location = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));//TimeSpan.FromTicks(10000)
                     Xamarin.Forms.Maps.Position position = new Xamarin.Forms.Maps.Position(location.Latitude, location.Longitude);
 
                     MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
@@ -83,7 +83,7 @@ namespace Oceanica.Views
             }
             catch (Exception ex)
             {
-
+                string e = ex.Message;
             }
                 
             //}

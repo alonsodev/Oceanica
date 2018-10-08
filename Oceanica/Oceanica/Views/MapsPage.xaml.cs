@@ -94,7 +94,7 @@ namespace Oceanica.Views
                 locator.DesiredAccuracy = 15;
                 if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
                 {
-                    var location = await locator.GetPositionAsync(TimeSpan.FromTicks(10000));
+                    var location = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
                     TK.CustomMap.Position position = new TK.CustomMap.Position(location.Latitude, location.Longitude);
 
                     // MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
