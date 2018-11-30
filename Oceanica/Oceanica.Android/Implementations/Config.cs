@@ -13,12 +13,13 @@ using Android.Widget;
 namespace Oceanica.Droid.Implementations
 {
     using Interfaces;
-    using SQLite.Net.Interop;
+    //using SQLite.Net.Interop;
+ 
 
     public class Config : IConfig
     {
         private string directoryDB;
-        private ISQLitePlatform platform;
+        //private ISQLitePlatform platform;
 
         public string DirectoryDB
         {
@@ -28,11 +29,11 @@ namespace Oceanica.Droid.Implementations
                 {
                     directoryDB = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 }
-
+                
                 return directoryDB;
             }
         }
-
+        /*
         public ISQLitePlatform Platform
         {
             get
@@ -45,7 +46,7 @@ namespace Oceanica.Droid.Implementations
                 return platform;
 
             }
-        }
+        }*/
     }
 
 }

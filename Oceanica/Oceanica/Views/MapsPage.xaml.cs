@@ -14,6 +14,8 @@ namespace Oceanica.Views
     using Xamarin.Forms;
     using TK.CustomMap;
     using Xamarin.Forms.Xaml;
+    using Plugin.Permissions.Abstractions;
+    using Plugin.Permissions;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MapsPage : ContentPage
@@ -83,54 +85,76 @@ namespace Oceanica.Views
             {
                 return;
             }
-
+            
 
             try
             {
-                CancellationTokenSource ctx = new CancellationTokenSource();
-                var locator = CrossGeolocator.Current;
-                
-                //CrossGeolocator.Current.PositionChanged += CrossGeolocator_Current_PositionChanged;
-                locator.DesiredAccuracy = 15;
-                if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                if (status != PermissionStatus.Granted)
                 {
-                    var location = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
-                    TK.CustomMap.Position position = new TK.CustomMap.Position(location.Latitude, location.Longitude);
-
-                    // MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
-
-                    _pins.Clear();
-
-                    var pin = new TKCustomMapPin
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
                     {
-                        IsVisible = true,
-                        IsDraggable = true,
-                        //Type =  TKCustomMapPin.Place,
-                        Position = position,
-                        Title = "Posición Actual"
-                        //Label = "Posición Actual",
-                    };
-
-                    _pins.Add(pin);
-                    if(MyMap.Pins == null)
-                    {
-                        MyMap.Pins = _pins;
+                        await DisplayAlert("Need location", "Gunna need that location", "OK");
                     }
-                    
 
-                    MyMap.MoveToMapRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                    //Best practice to always check that the key exists
+                    if (results.ContainsKey(Permission.Location))
+                        status = results[Permission.Location];
+                }
 
-                    Xamarin.Forms.Maps.Geocoder geoCoder = new Xamarin.Forms.Maps.Geocoder();
+                if (status == PermissionStatus.Granted)
+                {
 
-                    var vm = (MainViewModel)BindingContext;
-                    vm.Maps.Coordenadas = position.Latitude + "," + position.Longitude;
-                    var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude));
-                    vm.Maps.Direccion = "";
-                    foreach (var a in possibleAddresses)
+                    CancellationTokenSource ctx = new CancellationTokenSource();
+                    var locator = CrossGeolocator.Current;
+
+                    //CrossGeolocator.Current.PositionChanged += CrossGeolocator_Current_PositionChanged;
+                    locator.DesiredAccuracy = 15;
+                    if (locator.IsGeolocationAvailable && locator.IsGeolocationEnabled)
                     {
-                        vm.Maps.Direccion += a;
-                        break;
+                        var location = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+                        TK.CustomMap.Position position = new TK.CustomMap.Position(location.Latitude, location.Longitude);
+
+                        // MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
+
+                        _pins.Clear();
+
+                        var pin = new TKCustomMapPin
+                        {
+                            IsVisible = true,
+                            IsDraggable = true,
+                            //Type =  TKCustomMapPin.Place,
+                            Position = position,
+                            Title = "Posición Actual"
+                            //Label = "Posición Actual",
+                        };
+
+                        _pins.Add(pin);
+                        if (MyMap.Pins == null)
+                        {
+                            MyMap.Pins = _pins;
+                        }
+
+
+                        MyMap.MoveToMapRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMiles(0.25)));
+
+                        Xamarin.Forms.Maps.Geocoder geoCoder = new Xamarin.Forms.Maps.Geocoder();
+
+                        var vm = (MainViewModel)BindingContext;
+                        vm.Maps.Coordenadas = position.Latitude + "," + position.Longitude;
+                        var possibleAddresses = await geoCoder.GetAddressesForPositionAsync(new Xamarin.Forms.Maps.Position(position.Latitude, position.Longitude));
+                        vm.Maps.Direccion = "";
+                        foreach (var a in possibleAddresses)
+                        {
+                            vm.Maps.Direccion += a;
+                            break;
+                        }
                     }
+                }
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("Localización denegada", "No se puede continuar, intentar nuevamente.", "OK");
                 }
             }
             catch (Exception ex)
@@ -172,21 +196,50 @@ namespace Oceanica.Views
 
         private async void enabledGPS()
         {
+            
             if (this.IsVisible)
             {
-                await Task.Delay(3000);
-                var locator = CrossGeolocator.Current;
-                if (!locator.IsGeolocationAvailable || !locator.IsGeolocationEnabled)
+                try
                 {
-                    await Application.Current.MainPage.DisplayAlert(
-                        "Error",
-                        "Por favor habilitar el GPS del dispositivo para el correcto funcionamiento de la aplicación.",
-                        "Aceptar");
+                    var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+                    if (status != PermissionStatus.Granted)
+                    {
+                        if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
+                        {
+                            await DisplayAlert("Localización requerida", "La localización es requerida", "OK");
+                        }
 
-                    IGpsPermission oGpsPermission = DependencyService.Get<IGpsPermission>();
-                    oGpsPermission.GetGps();
+                        var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+                        //Best practice to always check that the key exists
+                        if (results.ContainsKey(Permission.Location))
+                            status = results[Permission.Location];
+                    }
+
+                    if (status == PermissionStatus.Granted)
+                    {
+                        await Task.Delay(3000);
+                        var locator = CrossGeolocator.Current;
+                        if (!locator.IsGeolocationAvailable || !locator.IsGeolocationEnabled)
+                        {
+                            await Application.Current.MainPage.DisplayAlert(
+                                "Error",
+                                "Por favor habilitar el GPS del dispositivo para el correcto funcionamiento de la aplicación.",
+                                "Aceptar");
+
+                            IGpsPermission oGpsPermission = DependencyService.Get<IGpsPermission>();
+                            oGpsPermission.GetGps();
+                        }
+                    }
+                    else if (status != PermissionStatus.Unknown)
+                    {
+                        await DisplayAlert("Localización denegada", "No se puede continuar, intentar nuevamente.", "OK");
+                    }
                 }
-            }
+                catch (Exception ex)
+                {
+
+                }
+            }   
         }
     }
 }

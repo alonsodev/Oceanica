@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Oceanica.Models
 {
-    using SQLite.Net.Attributes;
+    using SQLite;
 
-    public class PerfilLocal
+    public class PerfilLocal : BaseDataModel
     {
-        [PrimaryKey]
-        public int PerfilId { get; set; }
+        /*[PrimaryKey]
+        public int PerfilId { get; set; }*/
 
         public string Titular { get; set; }
 

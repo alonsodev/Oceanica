@@ -6,7 +6,8 @@ namespace Oceanica.Helpers
 {
     using Interfaces;
     using Models;
-    using SQLite.Net;
+    //using SQLite.Net;
+    using SQLite;
     using SQLiteNetExtensions.Extensions;
     using System;
     using System.Collections.Generic;
@@ -20,10 +21,9 @@ namespace Oceanica.Helpers
 
         public DataAccess()
         {
+            
             var config = DependencyService.Get<IConfig>();
-            this.connection = new SQLiteConnection(
-                config.Platform,
-                Path.Combine(config.DirectoryDB, "Oceanica.db3"));
+            this.connection = new SQLiteConnection(Path.Combine(config.DirectoryDB, "Oceanica.db3"));
             connection.CreateTable<PerfilLocal>();
         }
 
@@ -42,7 +42,7 @@ namespace Oceanica.Helpers
             this.connection.Delete(model);
         }
 
-        public T First<T>(bool WithChildren) where T : class
+        public T First<T>(bool WithChildren) where T : class, new()
         {
             if (WithChildren)
             {
@@ -54,7 +54,7 @@ namespace Oceanica.Helpers
             }
         }
 
-        public List<T> GetList<T>(bool WithChildren) where T : class
+        public List<T> GetList<T>(bool WithChildren) where T : class, new()
         {
             if (WithChildren)
             {
@@ -66,7 +66,7 @@ namespace Oceanica.Helpers
             }
         }
 
-        public T Find<T>(int pk, bool WithChildren) where T : class
+        public T Find<T>(int pk, bool WithChildren) where T : class, new()
         {
             if (WithChildren)
             {
@@ -74,7 +74,7 @@ namespace Oceanica.Helpers
             }
             else
             {
-                return connection.Table<T>().FirstOrDefault(m => m.GetHashCode() == pk);
+                return connection.Table<T>().FirstOrDefault(m => ((IDataModel)m).PerfilId == pk);
             }
         }
 
