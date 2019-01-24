@@ -11,7 +11,7 @@ namespace Oceanica.Services
 
     public class DataService
     {
-        public bool DeleteAll<T>() where T : class
+        public bool DeleteAll<T>() where T : class, new()
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Oceanica.Services
             }
         }
 
-        public T DeleteAllAndInsert<T>(T model) where T : class
+        public T DeleteAllAndInsert<T>(T model) where T : class, new()
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Oceanica.Services
             }
         }
 
-        public T InsertOrUpdate<T>(T model) where T : class
+        public T InsertOrUpdate<T>(T model) where T : class, new()
         {
             try
             {
@@ -92,7 +92,7 @@ namespace Oceanica.Services
             }
         }
 
-        public T Find<T>(int pk, bool withChildren) where T : class
+        public T Find<T>(int pk, bool withChildren) where T : class, new()
         {
             using (var da = new DataAccess())
             {
@@ -100,7 +100,7 @@ namespace Oceanica.Services
             }
         }
 
-        public T First<T>(bool withChildren) where T : class
+        public T First<T>(bool withChildren) where T : class, new()
         {
             using (var da = new DataAccess())
             {
@@ -108,7 +108,7 @@ namespace Oceanica.Services
             }
         }
 
-        public List<T> Get<T>(bool withChildren) where T : class
+        public List<T> Get<T>(bool withChildren) where T : class, new()
         {
             using (var da = new DataAccess())
             {
@@ -132,7 +132,7 @@ namespace Oceanica.Services
             }
         }
 
-        public void Save<T>(List<T> list) where T : class
+        public void Save<T>(List<T> list) where T : class, new()
         {
             using (var da = new DataAccess())
             {

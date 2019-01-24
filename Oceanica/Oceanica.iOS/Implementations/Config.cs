@@ -10,12 +10,12 @@ namespace Oceanica.iOS.Implementations
 {
     using System;
     using Interfaces;
-    using SQLite.Net.Interop;
+    using SQLite;
 
     public class Config : IConfig
     {
         private string directoryDB;
-        private ISQLitePlatform platform;
+        //private ISQLitePlatform platform;
 
         public string DirectoryDB
         {
@@ -31,7 +31,7 @@ namespace Oceanica.iOS.Implementations
             }
         }
 
-        public ISQLitePlatform Platform
+     /*   public ISQLitePlatform Platform
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Oceanica.iOS.Implementations
 
                 return platform;
             }
-        }
+        }*/
     }
 
 }

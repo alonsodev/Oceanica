@@ -24,7 +24,7 @@ namespace Oceanica.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             //CrossCurrentActivity.Current.Activity.Init(this, bundle);
             global::Xamarin.FormsMaps.Init(this, bundle);
- 
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
             TKGoogleMaps.Init(this, bundle);
 
             LoadApplication(new App());
