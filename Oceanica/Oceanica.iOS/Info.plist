@@ -24,10 +24,8 @@
 	<string>11.3</string>
 	<key>CFBundleDisplayName</key>
 	<string>Oceanica</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.Oceanica</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.6</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -44,35 +42,16 @@
 	<string>App wants to use your location.</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>MKDirectionsRequest</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.apple.maps.directionsrequest</string>
-			</array>
-		</dict>
-	</array>
-	<key>MKDirectionsApplicationSupportedModes</key>
-	<array>
-		<string>MKDirectionsModePlane</string>
-		<string>MKDirectionsModeBike</string>
-		<string>MKDirectionsModeBus</string>
-		<string>MKDirectionsModeCar</string>
-		<string>MKDirectionsModeFerry</string>
-		<string>MKDirectionsModePedestrian</string>
-		<string>MKDirectionsModeStreetcar</string>
-		<string>MKDirectionsModeSubway</string>
-		<string>MKDirectionsModeTaxi</string>
-		<string>MKDirectionsModeTrain</string>
-		<string>MKDirectionsModeOther</string>
-	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.raycomsoluciones.Oceanica</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Donde y cuando necesités , acceso a tus   servicios de Oceánica Asistencia</string>
+	<key>UISupportsDocumentBrowser </key>
+	<string>YES</string>
 </dict>
 </plist>
